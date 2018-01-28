@@ -1,0 +1,23 @@
+<div>
+  <%= restaurant.likes_count  %>
+</div>
+<div>
+  <%= restaurant.favorites_count  %>
+</div>
+
+<% if restaurant.is_favorited?(current_user) %>
+  <%= link_to 'Unfavorite', unfavorite_restaurant_path(restaurant), method: :post, class: "btn btn-info" %>
+<% else %>
+  <%= link_to 'Favorite', favorite_restaurant_path(restaurant), method: :post, class: "btn btn-primary" %>
+<% end %>
+
+<% if restaurant.is_liked?(current_user)  %>
+  <%= link_to 'Unlike' , unlike_restaurant_path(restaurant), method: :post, class: "btn btn-info"  %>
+<% else  %>
+  <%= link_to 'Like' , like_restaurant_path(restaurant), method: :post, class: "btn btn-primary"  %>
+<% end %>
+
+
+
+
+
